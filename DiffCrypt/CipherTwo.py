@@ -1,6 +1,13 @@
 import random
 from collections import Counter
 
+import os, sys
+try:
+    s = sys.winver
+    os.system("cls")
+except:
+    os.system("clear")
+
 #BasicSBox
 SBox = {0x0:0x6, 0x1:0x4, 0x2:0xc, 0x3:0x5, 0x4:0x0, 0x5:0x7, 0x6:0x2, 0x7:0xe, 0x8:0x1, 0x9:0xf, 0xa:0x3, 0xb:0xd, 0xc:0x8, 0xd:0xa, 0xe:0x9, 0xf:0xb}
 SBoxInverted = dict([[v,k] for k,v in SBox.items()])
@@ -8,7 +15,7 @@ DistributionTable = {'u0':[],'u1':[],'v0':[],'v1':[],'diff_v':[]}
 
 Plaintext = [0xf,0x0]
 Ciphertext = [0x7,0xb]
-#UNKNOWN Keys[0x0,0xb,0x1]
+#hidden Keys[0x0,0xb,0x1] we want to bring up
 K1Candidates = []
 
 def getSBoxValue(input):
@@ -24,18 +31,16 @@ def getDifference(a,b):
 def initCipher():
     global startingdifference
     print "Init Cipher"
+    #inactive due to problems with XOR CALCULATIONS
     startingdifference = getDifference(Plaintext[0],Plaintext[1])
-    print "Calculate Difference: " + startingdifference
-
-
-
+    print "Calculate Difference: " + startingdifference[2:4]
 
 def calculateDistributionTable():
-    global K1Candidates
+    global DistributionTable
     for u0 in range(0,16):
         u1 = u0 ^ 0xf #startingdifference does not work BUT 0xf! //WILL FIX IT LATER
-        v0=getSBoxValue[u0]
-        v1=getSBoxValue[u1]
+        v0=getSBoxValue(u0)
+        v1=getSBoxValue(u1)
         diff_v = v0 ^ v1
 
         #store values
@@ -45,30 +50,23 @@ def calculateDistributionTable():
         DistributionTable['v1'].append(v1)
         DistributionTable['diff_v'].append(diff_v)
 
-        maxCounterofDT = Counter(DistributionTable['diff_v'])
-        print  maxCounterofDT
-        #v0s = guessed_k1 ^ Ciphertext[0]
-        #v1s = guessed_k1 ^ Ciphertext[1]
+def attack():
+    global DistributionTable
+    #Sortieralgo
+    highestDifferenzofV = Counter(DistributionTable['diff_v'])
+    #print highestDifferenzofV
 
-        #u0s = SBoxInverted[v0s]
-        #u1s = SBoxInverted[v1s]
-
-        #print "v0  : "+ hex(v0s)
-        #print "Inv0: "+ hex(u0s)
-
-        #print "v1:   "+ hex(v1s)
-        #print "Inv1: "+ hex(u1s)
-
-        #diff_us = getDifference (u0s,u1s)
-        #print "DIFF:" + diff_us
-
-        #if diff_us == startingdifference:
-        #    K1Candidates.append(guessed_k1)
-
-#        print ""
-
-#    for key in K1Candidates:
-#        print "Candidate: " + hex(key)
+    diff_v=0
+    occurence_V=0
+    for item in (DistributionTable['diff_v']):
+        print hex(item)[2:]
+        if highestDifferenzofV[item] > occurence_V:
+            diff_v = item
+            occurence_V=highestDifferenzofV[item]
+    print "Assumption for difference of "+ hex(diff_v) +" is " + str(highestDifferenzofV[diff_v])+"/16"
     return
+
+
 initCipher()
 calculateDistributionTable()
+attack()
