@@ -61,6 +61,25 @@ for i in range(0,16):
 # LOOP:
 CTR=0 # init loop
 
+# MASKing --> Selektoren für Angriff
+a=1
+b=1
+c=0
+d=1
+
+e=0
+f=1
+g=1
+h=1
+
+#TESTVECTOR
+x = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE 1000
+y = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE 1000 = FEHLER
+if (a*x[0] ^ b*x[1] ^ c*x[2] ^ d*x[3] == e*y[0] ^ f*y[1] ^ g*y[2] ^ h*y[3]):
+    print "+++++++++++++++++ GLEICH ++++++++++++++++"
+
+
+
 #ZEILE 1
 x = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
 y = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
