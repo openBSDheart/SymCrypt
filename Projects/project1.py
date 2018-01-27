@@ -51,18 +51,111 @@ for i in range(0,16):
         sys.stdout.write(str(DifferenceDistTable[j][i])+" ")
     sys.stdout.write("\n")
 
+# Werte kommen von oben und werden aus HEX umgewandelt in binaer und dann zugeteilt in Array
 #    0 1 2 3
+# ay = [0,0,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
+# by = [0,1,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
+
+
+#############################################################
+# LOOP:
+CTR=0 # init loop
+
+#ZEILE 1
 x = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-y = [1,0,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
+y = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+y = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+y = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+y = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+
+x = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+y = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+y = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+y = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+y = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+
+x = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+y = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+y = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+y = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+y = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+
+x = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+y = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+y = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+y = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+x = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+y = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+if (x[0]==y[0]):
+    CTR+=1
+
+COUNT= float((float(CTR)/16)-0.5)*16 #floatCASTING = - 0.125*16 = -2.0 (STIMMT)
+print "SUMME:" + str(COUNT)
+
+# LOOP ENDE
+#############################################################
 
 # PRUEFE AUTOMATISIERT ALLE LINEAR EQUATION INPUTS & OUTPUTS
-if  (x[0] ^ x[1] == y[0] ^ y[1]):
-    print ""
-    print ">>>> INC_CTR++ "
+# IN=OUT
+# 0 auf 0
+#for i in range(0,16):
+#if (x[0]==y[0]):
+#    ctr+=1
+
+
+#if (x[0] ^ x[2]==y[0] ^ y[2] ^ y[3])
+
+
+# 0 auf 0
+
+#if  (x[0] ^ x[1] ^ x[2] ^ x[3] == y[0] ^ y[1] ^ y[2] ^ y[3]): # IDEE XOR mit 0 zum auslassen von Variablen
+#    print ""
+#    print ">>>> INC_CTR++ "
 
 
 
-print "Success of the attack BIAS = (SUMME_CTR/16)-1/2"
+#print "Success of the attack BIAS = (SUMME_CTR/16)-1/2"
 
 
 
