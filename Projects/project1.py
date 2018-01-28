@@ -38,15 +38,24 @@
 
 #2. Find all biased linear approximation with a one bit input and output mask.
 #
+# 0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
 #
-#    0  0     0           0
-#    0  2    -2           2
-#
-#    0 -2    -2          -2
-#
-#
-#
-#    0  2     0          -2
+# 0  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+# 1  .  0  0  .  0  .  .  .  0  .  .  .  .  .  .  .
+# 2  .  0  2  . -2  .  .  .  2  .  .  .  .  .  .  .
+# 3  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+# 4  .  0 -2  . -2  .  .  . -2  .  .  .  .  .  .  .
+# 5  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+# 6  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+# 7  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+# 8  .  0  2  .  0  .  .  . -2  .  .  .  .  .  .  .
+# 9  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+#10  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+#11  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+#12  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+#13  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+#14  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+#15  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
 
 
 
@@ -143,9 +152,10 @@ def getProjectOneApproximation():
 
     inp = 0
     outp = 0
-
+    print " 0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F"
     for inp in range(0,16):
         sys.stdout.write("\n")
+        sys.stdout.write ("%2d " % (inp))
         for outp in range(0,16):
             CTR=0 # init or reset call
 
@@ -346,8 +356,11 @@ def getProjectOneLinearApproOneBitInOutMask():
     inp = 0
     outp = 0
 
+    print ""
+    print " 0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F"
     for inp in range(0,16):
         sys.stdout.write("\n")
+        sys.stdout.write ("%2d " % (inp))
         for outp in range(0,16):
             CTR=0 # init or reset call
 
@@ -472,7 +485,7 @@ def getProjectOneLinearApproOneBitInOutMask():
             if (COUNT != -8):
                 sys.stdout.write ("%2d " % (COUNT))
             else:
-                sys.stdout.write ("   ")
+                sys.stdout.write (" . ")
 
     print ""
     print ""
