@@ -57,27 +57,97 @@ for i in range(0,16):
 # by = [0,1,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
 
 
+def getCoefficient(i,j):
+    a=b=c=d=e=f=g=h=0
+    #CountNumbers --> dann zuerst hinten auffuellen der variablen
+    i=str(bin(i))[2:] #Binaerumwandlung der Zahl 7 --> 111
+    stellen=(len(str(i))) #Stellen abzaehlen -- hier war str davor --> 3
+
+
+    #Korrekturvorbereitung fuer Masking 0er Stellen z.B. 4 = 11 statt notwendiger 0011
+    #print "STELLEN: "+ str(stellen)
+    if stellen == 1:
+        a=b=c=0
+        d=i[0]
+    if stellen == 2:
+        a=b=0
+        c=i[0]
+        d=i[1]
+    if stellen == 3:
+        a=0
+        b=i[0]
+        c=i[1]
+        d=i[2]
+    if stellen == 4:
+        a=i[0]
+        b=i[1]
+        c=i[2]
+        d=i[3]
+
+
+
+
+    j=str(bin(j))[2:] #Binaerumwandlung der Zahl 7 --> 111
+    stellen=(len(str(j))) #Stellen abzaehlen -- hier war str davor --> 3
+
+
+    #Korrekturvorbereitung fuer Masking 0er Stellen z.B. 4 = 11 statt notwendiger 0011
+    #print "STELLEN: "+ str(stellen)
+    if stellen == 1:
+        e=f=g=0
+        h=j[0]
+    if stellen == 2:
+        e=f=0
+        g=j[0]
+        h=j[1]
+    if stellen == 3:
+        e=0
+        f=j[0]
+        g=j[1]
+        h=j[2]
+    if stellen == 4:
+        e=j[0]
+        f=j[1]
+        g=j[2]
+        h=j[3]
+
+
+    #CountDigits:
+    a = int (a)
+    b = int (b)
+    c = int (c)
+    d = int (d)
+    e = int (e)
+    f = int (f)
+    g = int (g)
+    h = int (h)
+    return a,b,c,d,e,f,g,h
+
 #############################################################
 # LOOP:
+RetCPos = getCoefficient (15,14) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+
+if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+    print "+++++++++++++++++ +++++++ WOR KI NG !!!! YEAH  U ARE GREAT ++++++++++++++++"
+
+
+
 CTR=0 # init loop
 
-# MASKing --> Selektoren für Angriff
-a=1
-b=1
-c=0
-d=1
-
-e=0
-f=1
-g=1
-h=1
+# MASKing --> Selektoren fuer Angriff
 
 #TESTVECTOR
 x = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE 1000
 y = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE 1000 = FEHLER
-if (a*x[0] ^ b*x[1] ^ c*x[2] ^ d*x[3] == e*y[0] ^ f*y[1] ^ g*y[2] ^ h*y[3]):
-    print "+++++++++++++++++ GLEICH ++++++++++++++++"
+#if (a*x[0] ^ b*x[1] ^ c*x[2] ^ d*x[3] == e*y[0] ^ f*y[1] ^ g*y[2] ^ h*y[3]):#
+#if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+#    print "+++++++++++++++++ +++++++ WOR KI NG !!!! YEAH  U ARE GREAT ++++++++++++++++"
 
+## TODO:
+# Selektoren a-h muessen aus Funktion dynamisch geliefert werden von 0000 - 1111 als Rueckgabewert
+# e-h bestimmt die Ausgabespalte X (oben), danach wird ueber die Ausgabespalte e-h in einer Loop gelaufen.
+# Zuerst 0,1,2,3,4,5,6, ... in X Achse, dann einen runter, wieder 0,1,2,3,4,5,6,7, auf X, einen runter ...
+# nach je 16 Zeilendurchlaufen bis ganz nach unten inkrementieren wir zuerst die Eingabewerte, danach die Ausgabewerte
 
 
 #ZEILE 1
