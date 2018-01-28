@@ -15,7 +15,7 @@
 #7. Execute some experiments to see how the bias is distributed over the keys.
 #Note: This might take some time, but is very helpful for a better understanding!
 
-# EXECUTION RESULT: SBOX approximation
+# EXECUTION RESULT: SBOX approximation 
 # 8  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 # 0  0 -2 -2  0  0 -2  6  2  2  0  0  2  2  0  0
 # 0  0 -2 -2  0  0 -2 -2  0  0  2  2  0  0 -6  2
