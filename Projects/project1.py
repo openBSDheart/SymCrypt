@@ -41,9 +41,6 @@ try:
 except:
     os.system("clear")
 
-
-
-
 #        0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f
 #SBox= [0xc,0x5,0x6,0xb,0x9,0x0,0xa,0xd,0x3,0xe,0xf,0x8,0x4,0x7,0x1,0x2]
 
@@ -75,11 +72,8 @@ def getCoefficient(i,j):
         d=i[3]
 
 
-
-
     j=str(bin(j))[2:] #Binaerumwandlung der Zahl 7 --> 111
     stellen=(len(str(j))) #Stellen abzaehlen -- hier war str davor --> 3
-
 
     #Korrekturvorbereitung fuer Masking 0er Stellen z.B. 4 = 11 statt notwendiger 0011
     #print "STELLEN: "+ str(stellen)
@@ -117,27 +111,10 @@ def getCoefficient(i,j):
 # LOOP:
 #RetCPos = getCoefficient (15,14) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
 
-#if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-#    print "+++++++++++++++++ +++++++ WOR KI NG !!!! YEAH  U ARE GREAT ++++++++++++++++"
-
-
-
 CTR=0 # init loop
 
-# MASKing --> Selektoren fuer Angriff
-
-#TESTVECTOR
-#x = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE 1000
-#y = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE 1000 = FEHLER
-#if (a*x[0] ^ b*x[1] ^ c*x[2] ^ d*x[3] == e*y[0] ^ f*y[1] ^ g*y[2] ^ h*y[3]):#
-#if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-#    print "+++++++++++++++++ +++++++ WOR KI NG !!!! YEAH  U ARE GREAT ++++++++++++++++"
 
 ## TODO:
-# Selektoren a-h muessen aus Funktion dynamisch geliefert werden von 0000 - 1111 als Rueckgabewert
-# e-h bestimmt die Ausgabespalte X (oben), danach wird ueber die Ausgabespalte e-h in einer Loop gelaufen.
-# Zuerst 0,1,2,3,4,5,6, ... in X Achse, dann einen runter, wieder 0,1,2,3,4,5,6,7, auf X, einen runter ...
-# nach je 16 Zeilendurchlaufen bis ganz nach unten inkrementieren wir zuerst die Eingabewerte, danach die Ausgabewerte
 
 inp = 0
 outp = 0
@@ -148,12 +125,6 @@ for inp in range(0,16):
     sys.stdout.write("\n")
     for outp in range(0,16):
         CTR=0 # init or reset call
-
-
-
-
-
-
 
         #ZEILE 1
         x = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
@@ -262,21 +233,3 @@ for inp in range(0,16):
 
 # LOOP ENDE
 #############################################################
-
-# Finde Maximum
-# delta y, delta x, number of times
-#maximum = [0,0,0]
-#for i in range(0,16):
-#    for j in range(0,16):
-#        if DifferenceDistTable[j][i] >= maximum[2] and i != 0 and j !=0:
-#            maximum[0] = i
-#            maximum[1] = j
-#            maximum[2] = DifferenceDistTable[j][i]
-
-# Gebe Maximum aus
-#print ""
-#print "Maximum"
-#print "Delta X: " + str(hex(maximum[0]))
-#print "Delta Y: " + str(hex(maximum[1]))
-#print "Auftreten: " + str(maximum[2])
-#print "Warscheinlichkeit: " + str(maximum[2]) +"/16"
