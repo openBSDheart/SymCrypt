@@ -41,6 +41,8 @@ try:
 except:
     os.system("clear")
 
+##TASK 1.1
+
 #        0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f
 #SBox= [0xc,0x5,0x6,0xb,0x9,0x0,0xa,0xd,0x3,0xe,0xf,0x8,0x4,0x7,0x1,0x2]
 
@@ -107,129 +109,131 @@ def getCoefficient(i,j):
     h = int (h)
     return a,b,c,d,e,f,g,h
 
-#############################################################
-# LOOP:
-#RetCPos = getCoefficient (15,14) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+def getProjectOneApproximation():
+    #############################################################
+    # LOOP:
+    #RetCPos = getCoefficient (15,14) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
 
-CTR=0 # init loop
+    print "1. Compute the linear approximation table for the PRESENT S-box."
+    CTR=0 # init loop
 
+    inp = 0
+    outp = 0
 
-## TODO:
+    for inp in range(0,16):
+        sys.stdout.write("\n")
+        for outp in range(0,16):
+            CTR=0 # init or reset call
 
-inp = 0
-outp = 0
+            #ZEILE 1
+            x = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
-y=0
+            x = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
-for inp in range(0,16):
-    sys.stdout.write("\n")
-    for outp in range(0,16):
-        CTR=0 # init or reset call
+            x = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
-        #ZEILE 1
-        x = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
-
-        x = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
-
-        x = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
-
-        x = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
+            x = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
 
-        x = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
+            x = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
-        x = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
+            x = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
-        x = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
+            x = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
-        x = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
-
-
-        x = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
-
-        x = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
-
-        x = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
-
-        x = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
+            x = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
 
-        x = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
+            x = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
-        x = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
+            x = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
-        x = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
+            x = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
-        x = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-        y = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-        RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
-        if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
-            CTR+=1
-
-
-        COUNT= float((float(CTR)/16)-0.5)*16 #floatCASTING = - 0.125*16 = -2.0 (STIMMT)
-        sys.stdout.write ("%2d " % (COUNT))
+            x = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
 
 
-# LOOP ENDE
-#############################################################
+            x = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
+
+            x = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
+
+            x = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
+
+            x = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
+            if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
+                CTR+=1
+
+
+            COUNT= float((float(CTR)/16)-0.5)*16 #floatCASTING = - 0.125*16 = -2.0 (STIMMT)
+            sys.stdout.write ("%2d " % (COUNT))
+
+    print ""
+    # LOOP ENDE
+    #############################################################
+
+## TASK 1. Compute the linear approximation table for the PRESENT S-box.
+getProjectOneApproximation()
+## TASK2. Find all biased linear approximation with a one bit input and output mask.
+getProjectOneLinearApproOneBitInOutMask()
