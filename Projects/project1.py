@@ -15,7 +15,7 @@
 #7. Execute some experiments to see how the bias is distributed over the keys.
 #Note: This might take some time, but is very helpful for a better understanding!
 
-# EXECUTION RESULT: SBOX approximation 
+# EXECUTION RESULT: SBOX approximation
 # 8  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 # 0  0 -2 -2  0  0 -2  6  2  2  0  0  2  2  0  0
 # 0  0 -2 -2  0  0 -2 -2  0  0  2  2  0  0 -6  2
@@ -44,37 +44,8 @@ except:
 
 
 
-# S-Box of Cipher (- DEMO - NON PRESENT --> CHANGE LATER )
-SBox = [0xF,0xE,0xB,0xC,0x6,0xD,0x7,0x8,0x0,0x3,0x9,0xA,0x4,0x2,0x1,0x5]
-DifferenceDistTable = [[0 for x in range(16)] for y in range(16)]
-
-
-# Berechne Difference Distribution Table
-for x0 in range(0,16):
-    for x1 in range(0,16):
-        inputDiff = x0 ^ x1
-
-        outputDiff = SBox[x0] ^ SBox[x1]
-        DifferenceDistTable[outputDiff][inputDiff] += 1
-
-
-# Gebe Difference Distribution Table aus
-#sys.stdout.write("   ")
-#for z in range(0,16):
-#    sys.stdout.write(str(z)+" ")
-#sys.stdout.write("\n")
-
-#for i in range(0,16):
-#    sys.stdout.write(str(i)+": ")
-#    for j in range(0,16):
-#        sys.stdout.write(str(DifferenceDistTable[j][i])+" ")
-#        sys.stdout.write("\n")
-
-# Werte kommen von oben und werden aus HEX umgewandelt in binaer und dann zugeteilt in Array
-#    0 1 2 3
-# ay = [0,0,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
-# by = [0,1,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
-
+#        0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f
+SBox= [0xc,0x5,0x6,0xb,0x9,0x0,0xa,0xd,0x3,0xe,0xf,0x8,0x4,0x7,0x1,0x2]
 
 def getCoefficient(i,j):
     a=b=c=d=e=f=g=h=0
