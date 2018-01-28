@@ -263,29 +263,6 @@ for inp in range(0,16):
 # LOOP ENDE
 #############################################################
 
-# PRUEFE AUTOMATISIERT ALLE LINEAR EQUATION INPUTS & OUTPUTS
-# IN=OUT
-# 0 auf 0
-#for i in range(0,16):
-#if (x[0]==y[0]):
-#    ctr+=1
-
-
-#if (x[0] ^ x[2]==y[0] ^ y[2] ^ y[3])
-
-
-# 0 auf 0
-
-#if  (x[0] ^ x[1] ^ x[2] ^ x[3] == y[0] ^ y[1] ^ y[2] ^ y[3]): # IDEE XOR mit 0 zum auslassen von Variablen
-#    print ""
-#    print ">>>> INC_CTR++ "
-
-
-
-#print "Success of the attack BIAS = (SUMME_CTR/16)-1/2"
-
-
-
 # Finde Maximum
 # delta y, delta x, number of times
 #maximum = [0,0,0]
