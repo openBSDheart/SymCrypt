@@ -35,6 +35,29 @@
 # 0  0  2  2 -4  4 -2 -2 -2 -2  0  0 -2 -2  0  0
 # 0  4 -2  2  0  0 -2 -2 -2  2  4  0  2  2  0  0
 
+
+#2. Find all biased linear approximation with a one bit input and output mask.
+#
+#
+#    0  0     0           0
+#    0  2    -2           2
+#
+#    0 -2    -2          -2
+#
+#
+#
+#    0  2     0          -2
+
+
+
+
+
+
+
+
+
+
+
 import os, sys
 try:
     s = sys.winver
