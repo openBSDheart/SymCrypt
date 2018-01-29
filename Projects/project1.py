@@ -67,7 +67,7 @@
 
 
 
-
+import math
 import os, sys
 try:
     s = sys.winver
@@ -681,8 +681,20 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
 
 
 def getProjectOneComputebias():
+    print "Pilling up lemma, according wikipedia"
+    print "Permutation is not implemented (linear parts)"
+    print "Biases can be 2 or -2 -> which is the same"
 
-return
+
+    bias=0.0
+    prob=0.0
+    rnd=0.0
+    bias = 2.0 / 16.0
+
+    for rnd in range(1,10):
+        prob = math.pow(2.0,(rnd-1)) * math.pow(bias, float (rnd))
+        print " " + str(prob)
+    return
 
 
 
