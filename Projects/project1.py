@@ -665,7 +665,8 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
     sys.stdout.write ("other higher value instead of -2 or 2 exists (which are the same due to an biased value), we can select every \n")
     sys.stdout.write ("one bit input mask with an one bit output mask for this task here.\n")
     sys.stdout.write ("For our goal to have only one SBOX per round active, we use one bit masking as input: like 0001=1, 0010=2, \n")
-    sys.stdout.write (" 0100=4 or 1000=8 with the same output masking choosen.")
+    sys.stdout.write (" 0100=4 or 1000=8 with the same output masking choosen. We select the linear characteristic of \n")
+    sys.stdout.write (" ALPHA=1000=8 and BETA=1000=8")
     print ""
     print ""
     # LOOP ENDE
@@ -679,7 +680,9 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
 
 
 
+def getProjectOneComputebias():
 
+return
 
 
 
@@ -696,3 +699,5 @@ getProjectOneApproximation()
 getProjectOneLinearApproOneBitInOutMask()
 # TASK3 Find a linear characteristic for some rounds with only one active Sbox per round.
 getProjectOneLinearCharacteristicfsRoundswithOneBitActive()
+# TASK4 #4. Compute its bias.
+getProjectOneComputebias()
