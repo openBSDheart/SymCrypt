@@ -166,100 +166,100 @@ def getProjectOneApproximation():
 
             #ZEILE 1
             x = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,1,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
 
             x = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,1,0] #    EingabAusgabee-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
 
             x = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,1,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
 
             x = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
 
             x = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,1,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficient (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                 CTR+=1
@@ -371,28 +371,28 @@ def getProjectOneLinearApproOneBitInOutMask():
 
             #ZEILE 1
             x = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,1,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -400,28 +400,28 @@ def getProjectOneLinearApproOneBitInOutMask():
 
 
             x = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,1,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -429,28 +429,28 @@ def getProjectOneLinearApproOneBitInOutMask():
 
 
             x = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,1,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -458,28 +458,28 @@ def getProjectOneLinearApproOneBitInOutMask():
 
 
             x = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
                     CTR+=1
 
             x = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,1,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -522,7 +522,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
 
             #ZEILE 1
             x = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -530,7 +530,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
                     print "SBox Input: "+str(x) + " with output " + str(y)
 
             x = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -539,7 +539,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
 
 
             x = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,1,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -547,7 +547,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
                     print "SBox Input: "+str(x) + " with output " + str(y)
 
             x = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -556,7 +556,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
 
 
             x = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -564,7 +564,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
                     print "SBox Input: "+str(x) + " with output " + str(y)
 
             x = [0,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -572,7 +572,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
                     print "SBox Input: "+str(x) + " with output " + str(y)
 
             x = [0,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,1,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -580,7 +580,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
                     print "SBox Input: "+str(x) + " with output " + str(y)
 
             x = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -589,7 +589,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
 
 
             x = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -597,7 +597,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
                     print "SBox Input: "+str(x) + " with output " + str(y)
 
             x = [1,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,1,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -605,7 +605,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
                     print "SBox Input: "+str(x) + " with output " + str(y)
 
             x = [1,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,1,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -613,7 +613,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
                     print "SBox Input: "+str(x) + " with output " + str(y)
 
             x = [1,0,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [1,0,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [1,0,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -621,7 +621,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
                     print "SBox Input: "+str(x) + " with output " + str(y)
 
             x = [1,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,0,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,0,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -630,7 +630,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
 
 
             x = [1,1,0,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,1,1,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -638,7 +638,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
                     print "SBox Input: "+str(x) + " with output " + str(y)
 
             x = [1,1,1,0] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,0,1] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,0,1] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -646,7 +646,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
                     print "SBox Input: "+str(x) + " with output " + str(y)
 
             x = [1,1,1,1] #    Eingabe-SBox PRESENT CHIFFRE
-            y = [0,0,1,0] #    Eingabe-SBox PRESENT CHIFFRE
+            y = [0,0,1,0] #    Ausgabe-SBox PRESENT CHIFFRE
             RetCPos = getCoefficientOneBitMask (inp,outp) #RetCoefficientPosition 0 1 2 3 - 4 5 6 7
             if(RetCPos[0]!=9):
                 if (RetCPos[0]*x[0] ^ RetCPos[1]*x[1] ^ RetCPos[2]*x[2] ^ RetCPos[3]*x[3] == RetCPos[4]*y[0] ^ RetCPos[5]*y[1] ^ RetCPos[6]*y[2] ^ RetCPos[7]*y[3]):
@@ -661,7 +661,7 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
 
     sys.stdout.write (" is the BIAS of this input/output mask. It results of all results summed up, divided by 16, minus 0.5 for the \n")
     sys.stdout.write ("reduction of a random attacker chance to receive the BIAS, which is the absolut advantage for the attacker in\n")
-    sys.stdout.write ("using our selected mask of 1000 = 8 as INPUT and 1000 = 8 as OUTPUT. Since the PRESENT SBox is secure, and no \n")
+    sys.stdout.write ("using our selected mask of 8 as INPUT and 8 as OUTPUT. Since the PRESENT SBox is secure, and no \n")
     sys.stdout.write ("other higher value instead of -2 or 2 exists (which are the same due to an biased value), we can select every \n")
     sys.stdout.write ("one bit input mask with an one bit output mask for this task here.\n")
     sys.stdout.write ("For our goal to have only one SBOX per round active, we use one bit masking as input: like 0001=1, 0010=2, \n")
