@@ -32,17 +32,29 @@ sbox = (0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5,
         0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68,
         0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16)
 
-def ByteSub(inblock)
+def ByteSub(inblock):
         inblock = []
         inblock.append()
 return
 
 def fullencryption(plaintext,key):
+    #Testing with msg: 54776F204F6E65204E696E652054776F "Thats my Kung Fu"
+    #             key: 5468617473206D79204B756E67204675 "Two One Nine Two"
+    #Zero round key: Start Key above
+    #Round 0: 54 68 61 74 73 20 6D 79 20 4B 75 6E 67 20 46 75
+    #Round 1: E2 32 FC F1 91 12 91 88 B1 59 E4 E6 D6 79 A2 93
+    #Round 2: 56 08 20 07 C7 1A B1 8F 76 43 55 69 A0 3A F7 FA
+    #Round 3: D2 60 0D E7 15 7A BC 68 63 39 E9 01 C3 03 1E FB
+    #Round 4: A1 12 02 C9 B4 68 BE A1 D7 51 57 A0 14 52 49 5B
 
-    #Plaintext in 4 Blöcke umwandeln A0,A1,A2,A3 - A4,A5,A6,A7 - ... A15
+    #AES output after Round 1: 5847088B15B61CBA59D4E2E8CD39DFCE
+
+
+    #Split Plaintext into 4 Blocks A0,A1,A2,A3 - A4,A5,A6,A7 - ... A15
     s.append(message[:4]) # A0-3
     s.append(message[4:8]) # A4-7
     s.append(message[8:12]) # A8-11
     s.append(message[12:16]) # A12-15
-
 return
+
+fullencryption('5468617473206D79204B756E67204675')
