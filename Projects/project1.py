@@ -1,3 +1,5 @@
+#FIRST
+
 #Project1
 #Linear Attack on PRESENT
 
@@ -665,8 +667,10 @@ def getProjectOneLinearCharacteristicfsRoundswithOneBitActive():
     sys.stdout.write ("other higher value instead of -2 or 2 exists (which are the same due to an biased value), we can select every \n")
     sys.stdout.write ("one bit input mask with an one bit output mask for this task here.\n")
     sys.stdout.write ("For our goal to have only one SBOX per round active, we use one bit masking as input: like 0001=1, 0010=2, \n")
-    sys.stdout.write (" 0100=4 or 1000=8 with the same output masking choosen. We select the linear characteristic of \n")
-    sys.stdout.write (" ALPHA=1000=8 and BETA=1000=8")
+    sys.stdout.write (" 0100=4 or 1000=8 with the same output masking choosen. \n\nWe select the linear characteristic of \n")
+    sys.stdout.write (" ALPHA=1000=8 and BETA=1000=8, which means that only one SBOX is active at the same time. Due to only one \n")
+    sys.stdout.write (" bit is forwarded in the permutation process \n")
+
     print ""
     print ""
     # LOOP ENDE
