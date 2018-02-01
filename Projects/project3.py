@@ -32,12 +32,17 @@ sbox = (0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5,
         0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68,
         0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16)
 
-def ByteSub(inblock):
-        inblock = []
-        inblock.append()
-return
+def ByteSub(currentstate):
+        currentstate = [list(c) for c in currentstate]
+        for i in range(len(currentstate)):
+            row = currentstate[i]
+            for j in range(len(row)):
+                currentstate[i][j] = sbox[currentstate[i][j]]
+                sys.stdout.write ((currentstate[i][j] + " "))
+        return currentstate
 
-def fullencryption(plaintext,key):
+
+def fullencryption(plaintext, key):
     #Testing with msg: 54776F204F6E65204E696E652054776F "Thats my Kung Fu"
     #             key: 5468617473206D79204B756E67204675 "Two One Nine Two"
     #Zero round key: Start Key above
@@ -50,11 +55,45 @@ def fullencryption(plaintext,key):
     #AES output after Round 1: 5847088B15B61CBA59D4E2E8CD39DFCE
 
 
-    #Split Plaintext into 4 Blocks A0,A1,A2,A3 - A4,A5,A6,A7 - ... A15
-    s.append(message[:4]) # A0-3
-    s.append(message[4:8]) # A4-7
-    s.append(message[8:12]) # A8-11
-    s.append(message[12:16]) # A12-15
-return
+    #Teilt Klartext in BlockStates auf A0,A1,A2,A3 - A4,A5,A6,A7 - ... A15
+    bs = []
+    bs.append(plaintext[:4]) # A0-3
+    bs.append(plaintext[4:8]) # A4-7
+    bs.append(plaintext[8:12]) # A8-11
+    bs.append(plaintext[12:16]) # A12-15
+    return
 
-fullencryption('5468617473206D79204B756E67204675')
+def singleRound(bs, ks, r):
+    # nur key veraedert sich jede Runde
+    bs = ByteSub(bs)
+    bs = ShiftRows(bs)
+    bs = MixColumn(bs)
+    bs = keyAddition(bs, ks,r)
+    return bs
+
+def finalRound (bs, ks, r):
+    # nur key veraendert sich jede Runde
+    bs = ByteSub(bs)
+    bs = ShiftRows(bs)
+    # bs = MixColumn(bs) nicht enthalten in letzter Runde
+    bs = keyAddition(bs, ks,r)
+    return bs
+
+def keyderivation (key):
+    RoundCoeff = [[0x01,0x00,0x00,0x00],
+                 [0x02,0x00,0x00,0x00],
+                 [0x04,0x00,0x00,0x00],
+                 [0x08,0x00,0x00,0x00],
+                 [0x10,0x00,0x00,0x00],
+                 [0x20,0x00,0x00,0x00],
+                 [0x40,0x00,0x00,0x00],
+                 [0x80,0x00,0x00,0x00],
+                 [0x1B,0x00,0x00,0x00],
+                 [0x36,0x00,0x00,0x00]]
+
+
+
+
+    return
+
+fullencryption ('5468617473206D79204B756E67204675','')
